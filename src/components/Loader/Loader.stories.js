@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Loader } from "./Loader";
-// import "./SamplePost.css";
 
 export default {
   title: "Loader",
   component: Loader,
 };
 
-export const LoaderState = () => {
+export const ZeroConfig = () => {
+  // Uses default config that can be set to whatever
+  return <Loader loading={true} />;
+};
+
+export const SampleConfig = () => {
   let config = {
-    rows: 4,
+    rows: 5,
+    rowHeight: "10px",
     rowModifiers: {
       0: {
         height: "150px",
-        boxes: ["60%", "40%"],
+        boxes: ["20%", "80%"],
         placeHolders: [0],
       },
-      3: {
-        height: "25px",
+      4: {
         boxes: ["40%", "60%"], // Ideally adds up to 100%
         placeHolders: [0],
       },
@@ -30,12 +34,13 @@ export const LoaderState = () => {
 export const BlogPost = () => {
   const [loading, setLoading] = useState(true);
 
+  // Mimic API call
   useEffect(() => {
     let id = setTimeout(() => setLoading(false), 2000);
     return () => clearInterval(id);
   }, []);
 
-  let config = {
+  const config = {
     rows: 6,
     rowHeight: "20px", // optional - default 25px
     rowModifiers: {
@@ -92,26 +97,25 @@ export const SampleComic = () => {
     title: "Woodpecker",
   };
 
-  let config = {
+  const config = {
     rows: 3,
     rowModifiers: {
       0: {
-        height: "25px",
-        boxes: ["40%", "20%", "40%"], // Ideally adds up to 100%
+        height: "30px",
+        boxes: ["35%", "30%", "35%"], // Ideally adds up to 100%
         placeHolders: [1],
       },
       1: {
         height: "600px",
-        boxes: ["25%", "50%", "25%"], // Ideally adds up to 100%
+        boxes: ["20%", "60%", "20%"], // Ideally adds up to 100%
         placeHolders: [1],
       },
       2: {
         height: "25px",
-        boxes: ["20%", "60%", "20%"], // Ideally adds up to 100%
+        boxes: ["15%", "70%", "15%"], // Ideally adds up to 100%
         placeHolders: [1],
       },
     },
-    gutterHeight: "10px", // Optional, default - 10px
   };
   return (
     <div className="comic-wrapper">
