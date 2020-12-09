@@ -1,0 +1,41 @@
+.wrapper {
+  width: 100%;
+  background: #fff;
+  padding: 15px;
+}
+
+.content {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: gradient;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 900px 104px;
+  height: auto;
+  position: relative;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.row {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  height: 25px;
+}
+
+.gutter {
+  width: 100%;
+  background-color: white;
+  height: 10px;
+}
